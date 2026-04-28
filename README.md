@@ -85,7 +85,10 @@ print("RMSE :", rmse)
 ```
 
 ## Output:
-![simple linear regression model for predicting the marks scored](sam.png)
+<img width="976" height="852" alt="Screenshot 2026-04-28 082240" src="https://github.com/user-attachments/assets/dc15158c-d6af-4ae9-8431-1a78e9ee1974" />
+<img width="776" height="673" alt="Screenshot 2026-04-28 082255" src="https://github.com/user-attachments/assets/e1ffefde-1ac7-40f2-a669-929b7ec4e18b" />
+
+
 
 
 ## Result:
