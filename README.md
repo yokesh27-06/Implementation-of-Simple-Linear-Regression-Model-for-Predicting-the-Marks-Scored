@@ -26,75 +26,59 @@ RegisterNumber:212224230312
 
 ```
 
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-#import libraries to find mae, mse
-from sklearn.metrics import mean_absolute_error
-from sklearn.metrics import mean_squared_error
-
-#read csv file
-df= pd.read_csv('data.csv')
-
-#displaying the content in datafile
-df.head()
-df.tail()
-
-# Segregating data to variables
-X=df.iloc[:,:-1].values
-X
-y=df.iloc[:,-1].values
-y
-
-#splitting train and test data
+from sklearn.metrics import mean_absolute_error,mean_squared_error
+df=pd.read_csv('student_scores.csv')
+print(df)
+df.head(0)
+df.tail(0)
+print(df.head())
+print(df.tail())
+x = df.iloc[:,:-1].values
+print(x)
+y = df.iloc[:,1].values
+print(y)
 from sklearn.model_selection import train_test_split
-X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=1/2,random_state=0)
-
-#import linear regression model and fit the model with the data
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=1/3,random_state=0)
 from sklearn.linear_model import LinearRegression
-regressor=LinearRegression()
-regressor.fit(X_train,y_train)
-
-#displaying predicted values
-y_pred=regressor.predict(X_test)
-y_pred
-
-#displaying actual values
-y_test
-
-#graph plot for training data
-import matplotlib.pyplot as plt
-plt.scatter(X_train,y_train,color='red')
-plt.plot(X_train,regressor.predict(X_train),color='blue')
-plt.title("Hours vs Scores (Training Set)")
+regressor = LinearRegression()
+regressor.fit(x_train,y_train)
+y_pred = regressor.predict(x_test)
+print(y_pred)
+print(y_test)
+#Graph plot for training data
+plt.scatter(x_train,y_train,color='black')
+plt.plot(x_train,regressor.predict(x_train),color='blue')
+plt.title("Hours vs Scores(Training set)")
 plt.xlabel("Hours")
 plt.ylabel("Scores")
-
-#graph plot for test data
-plt.scatter(X_test,y_test,color='red')
-plt.plot(X_test,regressor.predict(X_test),color='blue')
-plt.title("Hours vs Scores (Testing Set)")
+plt.show()
+#Graph plot for test data
+plt.scatter(x_test,y_test,color='black')
+plt.plot(x_train,regressor.predict(x_train),color='red')
+plt.title("Hours vs Scores(Testing set)")
 plt.xlabel("Hours")
 plt.ylabel("Scores")
-
-#find mae,mse,rmse
-mse=mean_squared_error(y_test,y_pred)
+plt.show()
+mse=mean_absolute_error(y_test,y_pred)
 print('MSE = ',mse)
 mae=mean_absolute_error(y_test,y_pred)
 print('MAE = ',mae)
 rmse=np.sqrt(mse)
-print('RMSE = ',rmse)
+print("RMSE= ",rmse)
 ```
 
 ## Output:
-Head values
-<img width="167" height="241" alt="image" src="https://github.com/user-attachments/assets/d8c36616-55ca-4a9e-a28d-a6db8db67b4e" />
-
-Trail values
-<img width="178" height="235" alt="image" src="https://github.com/user-attachments/assets/c70531f9-b50e-4ab9-9750-74459c404790" />
-
-X values
-<img width="718" height="60" alt="image" src="https://github.com/user-attachments/assets/622fe7ae-39fc-4342-bd7e-28610e395b82" />
+<img width="1280" height="696" alt="image" src="https://github.com/user-attachments/assets/4b9271bf-328a-4522-9627-1e16fd2965ff" />
+<img width="1280" height="746" alt="image" src="https://github.com/user-attachments/assets/e44bcda6-f20c-4980-bdb1-101fe8cfdebe" />
+```
+MSE =  4.691397441397446
+MAE =  4.691397441397446
+RMSE=  2.165963397981934
+```
 
 
 
