@@ -29,64 +29,66 @@ RegisterNumber:212224230312
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+#import libraries to find mae, mse
+from sklearn.metrics import mean_absolute_error
+from sklearn.metrics import mean_squared_error
+
+#read csv file
+df= pd.read_csv('data.csv')
+
+#displaying the content in datafile
+df.head()
+df.tail()
+
+# Segregating data to variables
+X=df.iloc[:,:-1].values
+X
+y=df.iloc[:,-1].values
+y
+
+#splitting train and test data
 from sklearn.model_selection import train_test_split
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=1/2,random_state=0)
+
+#import linear regression model and fit the model with the data
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error, mean_absolute_error
+regressor=LinearRegression()
+regressor.fit(X_train,y_train)
 
+#displaying predicted values
+y_pred=regressor.predict(X_test)
+y_pred
 
-data = {
-    'Hours': [2.5, 5.1, 3.2, 8.5, 3.5, 1.5, 9.2, 5.5, 8.3, 2.7],
-    'Scores': [21, 47, 27, 75, 30, 20, 88, 60, 81, 25]
-}
+#displaying actual values
+y_test
 
-df = pd.DataFrame(data)
-
-print(df)
-
-X = df[['Hours']].values
-Y = df['Scores'].values
-
-Xtrain, Xtest, Ytrain, Ytest = train_test_split(X, Y, test_size=1/3, random_state=0)
-
-
-reg = LinearRegression()
-reg.fit(Xtrain, Ytrain)
-
-
-Ypred = reg.predict(Xtest)
-
-print("Predicted Values:", Ypred)
-
-
-plt.scatter(Xtrain, Ytrain, color='orange')
-plt.plot(Xtrain, reg.predict(Xtrain), color='red')
-plt.title("Training Set")
+#graph plot for training data
+import matplotlib.pyplot as plt
+plt.scatter(X_train,y_train,color='red')
+plt.plot(X_train,regressor.predict(X_train),color='blue')
+plt.title("Hours vs Scores (Training Set)")
 plt.xlabel("Hours")
 plt.ylabel("Scores")
-plt.show()
 
-
-plt.scatter(Xtest, Ytest, color='blue')
-plt.plot(Xtest, reg.predict(Xtest), color='green')
-plt.title("Test Set")
+#graph plot for test data
+plt.scatter(X_test,y_test,color='red')
+plt.plot(X_test,regressor.predict(X_test),color='blue')
+plt.title("Hours vs Scores (Testing Set)")
 plt.xlabel("Hours")
 plt.ylabel("Scores")
-plt.show()
 
-
-mse = mean_squared_error(Ytest, Ypred)
-mae = mean_absolute_error(Ytest, Ypred)
-rmse = np.sqrt(mse)
-
-print("MSE :", mse)
-print("MAE :", mae)
-print("RMSE :", rmse)
-
+#find mae,mse,rmse
+mse=mean_squared_error(y_test,y_pred)
+print('MSE = ',mse)
+mae=mean_absolute_error(y_test,y_pred)
+print('MAE = ',mae)
+rmse=np.sqrt(mse)
+print('RMSE = ',rmse)
 ```
 
 ## Output:
-<img width="976" height="852" alt="Screenshot 2026-04-28 082240" src="https://github.com/user-attachments/assets/dc15158c-d6af-4ae9-8431-1a78e9ee1974" />
-<img width="776" height="673" alt="Screenshot 2026-04-28 082255" src="https://github.com/user-attachments/assets/e1ffefde-1ac7-40f2-a669-929b7ec4e18b" />
+Head values
+<img width="167" height="241" alt="image" src="https://github.com/user-attachments/assets/d8c36616-55ca-4a9e-a28d-a6db8db67b4e" />
 
 
 
