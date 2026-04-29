@@ -90,6 +90,12 @@ print('RMSE = ',rmse)
 Head values
 <img width="167" height="241" alt="image" src="https://github.com/user-attachments/assets/d8c36616-55ca-4a9e-a28d-a6db8db67b4e" />
 
+Trail values
+<img width="178" height="235" alt="image" src="https://github.com/user-attachments/assets/c70531f9-b50e-4ab9-9750-74459c404790" />
+
+X values
+<img width="718" height="60" alt="image" src="https://github.com/user-attachments/assets/622fe7ae-39fc-4342-bd7e-28610e395b82" />
+
 
 
 
