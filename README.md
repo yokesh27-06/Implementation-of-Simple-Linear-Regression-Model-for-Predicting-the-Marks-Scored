@@ -72,7 +72,7 @@ print("RMSE= ",rmse)
 ```
 
 ## Output:
-<img width="1280" height="696" alt="image" src="https://github.com/user-attachments/assets/4b9271bf-328a-4522-9627-1e16fd2965ff" />
+<img width="450" height="912" alt="image" src="https://github.com/user-attachments/assets/a5368297-615d-4756-b0a2-1df0997162c3" />
 <img width="1280" height="746" alt="image" src="https://github.com/user-attachments/assets/e44bcda6-f20c-4980-bdb1-101fe8cfdebe" />
 
 
