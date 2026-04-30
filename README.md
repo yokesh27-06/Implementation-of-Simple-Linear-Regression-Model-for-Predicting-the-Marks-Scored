@@ -75,13 +75,6 @@ print("RMSE= ",rmse)
 <img width="1280" height="696" alt="image" src="https://github.com/user-attachments/assets/4b9271bf-328a-4522-9627-1e16fd2965ff" />
 <img width="1280" height="746" alt="image" src="https://github.com/user-attachments/assets/e44bcda6-f20c-4980-bdb1-101fe8cfdebe" />
 
-```
-
-MSE =  4.691397441397446
-MAE =  4.691397441397446
-RMSE=  2.165963397981934
-
-```
 
 
 
